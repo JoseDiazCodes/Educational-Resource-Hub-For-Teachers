@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Resource Portal</title>
+		<link
+			rel="stylesheet"
+			href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+		/>
+		<link rel="stylesheet" href="font-awesome.min.css" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header text-center">
+				<h1><span class="fa fa-user-secret"></span> Educational Resources</h1>
+				<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+			</div>
+
+			<!-- <div class="row"> -->
+				<!-- LOCAL INFORMATION -->
+				<!-- <div class="col-sm-6">
+					<div class="well">
+						<h3><span class="fa fa-user"></span> Local</h3>
+
+						<% if (user.local.email) { %>
+						<p>
+							<strong>id</strong>: <%= user._id %><br />
+							<strong>email</strong>: <%= user.local.email %><br />
+							<strong>password</strong>: <%= user.local.password %>
+						</p>
+
+						<a href="/unlink/local" class="btn btn-default">Unlink</a>
+						<% } else { %>
+						<a href="/connect/local" class="btn btn-default">Connect Local</a>
+						<% } %>
+					</div>
+				</div> -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Grades K-5</h3>
+                        <ul class="resources">
+                            <% for(var i=0; i<resourcesK5.length; i++) {%>
+                              <li class="resources <%= resourcesK5[i].favorite ? 'favorite' : '' %>">
+                                    <div class="resource-content">
+                                        <span>Title: <%= resourcesK5[i].title %></span>
+                                        <span>Subject: <%= resourcesK5[i].subject %></span>
+                                        <span>Grade Level: <%= resourcesK5[i].gradeLevel %></span>
+                                        <span>Resource Type: <%= resourcesK5[i].resourceType %></span>
+                                        <span>Link To Resource: <%= resourcesK5[i].link %></span>
+                                        <span>Description : <%= resourcesK5[i].description %></span>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                                        <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                                    </div>
+                                
+                              </li>
+                            <% } %>
+                        </ul>
+                    </div>
+    
+                    <!-- Grades 6-8 -->
+                    <div class="col-sm-4">
+                        <h3>Grades 6-8</h3>
+                        <ul class="resources">
+                            <% for(var i=0; i<resources68.length; i++) {%>
+                              <li class="resources <%= resources68[i].favorite ? 'favorite' : '' %>">
+                                    <div class="resource-content">
+                                        <span>Title: <%= resources68[i].title %></span>
+                                        <span>Subject: <%= resources68[i].subject %></span>
+                                        <span>Grade Level: <%= resources68[i].gradeLevel %></span>
+                                        <span>Resource Type: <%= resources68[i].resourceType %></span>
+                                        <span>Link: <%= resources68[i].link %></span>
+                                        <span>Description: <%= resources68[i].description %></span>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                                        <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                                    </div>    
+                              </li>
+                            <% } %>
+                        </ul>
+                    </div>
+    
+                    <!-- Grades 9-12 -->
+                    <div class="col-sm-4">
+                        <h3>Grades 9-12</h3>
+                        <ul class="resources">
+                            <% for(var i=0; i<resources912.length; i++) {%>
+                              <li class="resources <%= resources912[i].favorite ? 'favorite' : '' %>">
+                                    <div class="resource-content">
+                                        <span>Title: <%= resources912[i].title %></span>
+                                        <span>Subject: <%= resources912[i].subject %></span>
+                                        <span>Grade Level: <%= resources912[i].gradeLevel %></span>
+                                        <span>Resource Type: <%= resources912[i].resourceType %></span>
+                                        <span>Link: <%= resources912[i].link %></span>
+                                        <span>Description: <%= resources912[i].description %></span>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                                        <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                                    </div>
+                              </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+				
+				
+				<% if (user.local.email) { %>
+                    <p>
+                        <p>
+                            Welcome to the Educational Resources Portal For Educators! Here, you can effortlessly browse through a wide range of educational materials categorized by grade levels: K-5, 6-8, and 9-12 to help you plan your yearly curriculum. Each section is filled with resources that include titles, subjects, types, links, and detailed descriptions. Whether you're looking for specific study materials or exploring new educational content, everything is organized for your convenience. Plus, you have the ability to mark resources as favorites and manage them
+                        
+</p>
+				<form action="/resources" method="POST">
+					<input type="text" placeholder="Title" name="title" />
+					<input type="text" placeholder="Subject" name="subject" />
+					<select name="gradeLevel">
+						<option value="K-5">K-5</option>
+						<option value="6-8">6-8</option>
+						<option value="9-12">9-12</option>
+					</select>
+					<input type="text" placeholder="Resource Type" name="resourceType" />
+					<input type="url" placeholder="URL/Link" name="url" />
+					<textarea placeholder="Description" name="description"></textarea>
+					<button type="submit">Add Resource</button>
+				</form>
+			</div>
+			<% } %>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>
