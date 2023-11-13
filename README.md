@@ -56,5 +56,3 @@ Specify your project's license here (e.g., MIT License).
 ## Credit
 
 Modified from Scotch.io's auth tutorial
-
-# Educational-Resource-Hub-For-Teachers
